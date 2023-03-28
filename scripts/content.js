@@ -14,19 +14,20 @@ const observer = new MutationObserver(() => {
     return;
   }
 
-  const video = document.querySelectorAll("video");
-  const videoExists = video.length >= 1;
+  const videoSelector = document.querySelectorAll("video");
+  const video = videoSelector[0];
 
-  if (!videoExists) {
+  if (!video) {
     return;
   }
 
-  const videoMuted = video[0].muted;
+  const videoMuted = video.muted;
 
-  if (adExists && !videoMuted) {
-    video[0].muted = true;
+  if (videoMuted) {
     return;
   }
+
+  video.muted = true;
 });
 
 observer.observe(document, { childList: true, subtree: true });
