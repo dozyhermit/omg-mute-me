@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Omg mute me",
+  "version": "1.0",
+  "description": "Don't mind looking at ads but hate listening to them? This is for you!",
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["https://youtube.com/*", "*://*.youtube.com/*"]
+    }
+  ],
+  "permissions": ["scripting", "activeTab"]
+}
