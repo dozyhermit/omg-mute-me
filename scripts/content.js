@@ -1,4 +1,5 @@
-const observer = new MutationObserver(() => {
+const handler = () => {
+  // youtube
   const [adShowing, adCreated, adInterrupting] = [
     document.getElementsByClassName("ad-showing"),
     document.getElementsByClassName("ad-created"),
@@ -28,6 +29,10 @@ const observer = new MutationObserver(() => {
   }
 
   video.muted = true;
-});
+};
 
-observer.observe(document, { childList: true, subtree: true });
+// youtube
+const moviePlayer = document.getElementById("movie_player");
+
+const observer = new MutationObserver(handler);
+observer.observe(moviePlayer, { childList: true, subtree: true });
